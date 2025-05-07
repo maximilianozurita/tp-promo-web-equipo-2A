@@ -10,7 +10,6 @@ namespace negocio
 {
     public class AccesoDatos
     {
-        string DB_CONFIG = ConfigurationManager.AppSettings["DBConectionData"];
         private SqlConnection conexion;
         private SqlCommand comando;
         private SqlDataReader lector;
@@ -20,15 +19,7 @@ namespace negocio
         }
         public AccesoDatos()
         {
-            string connectionString;
-            if (!string.IsNullOrEmpty(DB_CONFIG))
-            {
-                connectionString = DB_CONFIG;
-            }
-            else
-            {
-                connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
-            }
+            string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString; ;
             conexion = new SqlConnection(connectionString);
             comando = new SqlCommand();
         }
