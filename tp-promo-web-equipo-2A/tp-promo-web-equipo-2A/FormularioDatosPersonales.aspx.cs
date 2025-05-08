@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace tp_promo_web_equipo_2A
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class FormularioDatosPersonales : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

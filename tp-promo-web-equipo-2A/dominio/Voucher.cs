@@ -12,6 +12,5 @@ namespace dominio
         public int IdCliente { get; set; }
         public int IdArticulo { get; set; }
         public DateTime FechaCanje { get; set; }
-
     }
 }

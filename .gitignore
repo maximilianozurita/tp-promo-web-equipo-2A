@@ -1,4 +1,6 @@
 .vs/
 **/obj/
 **/bin/
+**/bin/
+/tp-promo-web-equipo-2A/packages
 tp-promo-web-equipo-2A/tp-promo-web-equipo-2A/Web.config

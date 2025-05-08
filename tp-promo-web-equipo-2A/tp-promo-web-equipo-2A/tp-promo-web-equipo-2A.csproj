@@ -67,25 +67,48 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.aspx" />
+    <Content Include="FormularioDatosPersonales.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="ListadoArticulo.aspx" />
     <Content Include="Web.config" />
+    <Content Include="CodigoVoucher.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="FormularioDatosPersonales.aspx.cs">
+      <DependentUpon>FormularioDatosPersonales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="FormularioDatosPersonales.aspx.designer.cs">
+      <DependentUpon>FormularioDatosPersonales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ListadoArticulo.aspx.cs">
+      <DependentUpon>ListadoArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListadoArticulo.aspx.designer.cs">
+      <DependentUpon>ListadoArticulo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="CodigoVoucher.aspx.cs">
+      <DependentUpon>CodigoVoucher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CodigoVoucher.aspx.designer.cs">
+      <DependentUpon>CodigoVoucher.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="MasterPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
