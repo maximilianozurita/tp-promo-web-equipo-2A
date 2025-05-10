@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <h1>Hubo un problema</h1>
-    <asp:Label Text="Hubo un error" ID="lblMensaje" runat="server" />
+    <asp:Label ID="lblMensaje" runat="server" />
     <div class="alert alert-success" role="alert">
         <h4 class="alert-heading">Error</h4>
     </div>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,14 +20,17 @@ namespace tp_promo_web_equipo_2A
             string codigo = codigoVoucher.Text;
 
             //ToDo: Crear condicional verificando codigo de articulo. Si esta ok, guardar en sesion y redirigir. Si no, mostrar etiqueta
-            try
+
+            var datos = new VoucherNegocio();
+            string mensaje;
+            bool res = datos.EstaDisponible(codigo, out mensaje);
+            if (!res)
             {
-                //Session.Add("codigoSeleccionado", codigo);
-                Response.Redirect("ListadoArticulo.aspx", false);
+                Response.Redirect("Error.aspx?message="+mensaje,false);
             }
-            catch (Exception ex)
+            else
             {
-                Response.Redirect("Error.aspx", false);
+                Response.Redirect("ListadoArticulo.aspx", false);
             }
         }
     }
