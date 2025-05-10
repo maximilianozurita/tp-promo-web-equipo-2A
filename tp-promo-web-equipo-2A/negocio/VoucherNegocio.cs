@@ -10,7 +10,7 @@ namespace negocio
 {
     public class VoucherNegocio
     {
-        private List<Voucher> Listar()
+        public List<Voucher> Listar()
         {
             List<Voucher> lista = new List<Voucher>();
             AccesoDatos datos = new AccesoDatos();
@@ -60,29 +60,29 @@ namespace negocio
         {
             try
             {
-                var lista = Listar();
-                var obj = lista.Find(x => x.CodigoVoucher == code);
-                if(obj == null)
+                AccesoDatos datos = new AccesoDatos();
+                string query = "select * from VOUCHERS where CodigoVoucher = @codigo";
+                datos.setearConsulta(query);
+                datos.setearParametros("@codigo", code);
+                datos.ejecutarLectura();
+                datos.Lector.Read();
+                if (!datos.Lector.HasRows)
                 {
-                    errMensaje = "Codigo de Voucher no Existe";
+                    errMensaje = "Codigo de Voucher No existe";
                     return false;
                 }
-                else if(obj.IdCliente != null)
+                if (!(datos.Lector["IdCliente"] is DBNull))
                 {
-                    errMensaje = "Voucher Utilizado";
+                    errMensaje = "El Voucher ya fue utilizado";
                     return false;
                 }
-                else
-                {
-                    errMensaje = string.Empty;
-                    return true;
-                }
-
-
+                errMensaje = string.Empty;
+                return true;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                errMensaje = "Error Interno : "+ex.Message;
+
+                errMensaje = "Error Interno : " + ex.Message;
                 return false;
             }
         }
