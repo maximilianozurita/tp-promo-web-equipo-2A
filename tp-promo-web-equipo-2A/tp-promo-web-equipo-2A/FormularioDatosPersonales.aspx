@@ -5,64 +5,64 @@
 
 <div class="container mt-5">
   <h2>Ingresá tus datos</h2>
-  <form class="row g-3 needs-validation" novalidate>
+  <div class="row g-3 needs-validation">
     <div class="col-md-4">
       <label for="dni" class="form-label">DNI</label>
-      <input type="text" class="form-control" id="dni" required>
+        <asp:TextBox runat="server" type="text" CssClass="form-control" ID="textDni" placeholder="xxxx"/>
         <div class="invalid-feedback visually-hidden">Falta DNI.</div>
     </div>
 
     <div class="col-md-4">
       <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" class="form-control" id="nombre" required>
+        <asp:TextBox runat="server" type="text" CssClass="form-control" ID="textNombre" placeholder="xxxx"/>
        <div class="invalid-feedback visually-hidden">Falta Nombre.</div>
     </div>
 
     <div class="col-md-4">
       <label for="apellido" class="form-label">Apellido</label>
-      <input type="text" class="form-control" id="apellido" required>
+        <asp:TextBox runat="server" type="text" CssClass="form-control" ID="textApellido" placeholder="xxxx"/>
         <div class="invalid-feedback visually-hidden">Falta Apellido</div>
     </div>
 
     <div class="col-md-6">
       <label for="email" class="form-label">Email</label>
       <div class="input-group">
-        <span class="input-group-text" id="inputGroupPrepend">@</span>
-        <input type="email" class="form-control" id="email" required>
-          <div class="invalid-feedback visually-hidden">Falta email</div>
+        <span class="input-group-text">@</span>
+        <asp:TextBox runat="server" type="email" CssClass="form-control" ID="textEmail" placeholder="xxxx"/>
+        <div class="invalid-feedback visually-hidden">Falta email</div>
       </div>
     </div>
 
     <div class="col-md-6">
       <label for="direccion" class="form-label">Ciudad</label>
-      <input type="text" class="form-control" id="ciudad" placeholder="Mi ciudad" required>
-      <div class="invalid-feedback visually-hidden">Falta Ciudad.</div>
+        <asp:TextBox runat="server" type="text" CssClass="form-control" ID="textCiudad" placeholder="xxxx"/>
+        <div class="invalid-feedback visually-hidden">Falta Ciudad.</div>
     </div>
 
     <div class="col-md-4">
-      <label for="ciudad" class="form-label">Direccion</label>
-      <input type="text" class="form-control" id="direccion" required>
+      <label for="direccion" class="form-label">Direccion</label>
+        <asp:TextBox runat="server" type="text" CssClass="form-control" ID="textDireccion" placeholder="xxxx"/>
         <div class="invalid-feedback visually-hidden">Falta Direccion</div>
     </div>
 
     <div class="col-md-2">
       <label for="cp" class="form-label">CP</label>
-      <input type="text" class="form-control" id="cp" required>
-      <div class="invalid-feedback visually-hidden">Falta CP</div>
+        <asp:TextBox runat="server" type="text" CssClass="form-control" ID="textCP" placeholder="xxxx"/>
+        <div class="invalid-feedback visually-hidden">Falta CP</div>
     </div>
 
     <div class="col-12">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="terminos" required>
-        <label class="form-check-label" for="terminos">
+        <asp:CheckBox runat="server" CssClass="form-check-input" ID="checkTerminos"/>
+        <label class="form-check-label">
           Acepto los términos y condiciones.
         </label>
       </div>
     </div>
 
     <div class="col-12">
-      <button class="btn btn-primary" type="submit">¡Participar!</button>
+        <asp:Button ID="btnAceptar"  CssClass="btn btn-primary" runat="server" Text="¡Participar!" onClick="btnAceptar_Click" />
     </div>
-  </form>
+  </div>
 </div>
 </asp:Content>

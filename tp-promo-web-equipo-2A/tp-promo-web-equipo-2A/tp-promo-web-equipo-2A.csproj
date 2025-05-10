@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Error.aspx" />
+    <Content Include="formularioAprobado.aspx" />
     <Content Include="FormularioDatosPersonales.aspx" />
     <Content Include="Global.asax" />
     <Content Include="ListadoArticulo.aspx" />
@@ -74,6 +76,20 @@
     <Content Include="CodigoVoucher.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularioAprobado.aspx.cs">
+      <DependentUpon>formularioAprobado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularioAprobado.aspx.designer.cs">
+      <DependentUpon>formularioAprobado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormularioDatosPersonales.aspx.cs">
       <DependentUpon>FormularioDatosPersonales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

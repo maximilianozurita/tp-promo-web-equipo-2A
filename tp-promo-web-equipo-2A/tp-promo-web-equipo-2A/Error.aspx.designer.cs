@@ -11,25 +11,16 @@ namespace tp_promo_web_equipo_2A
 {
 
 
-    public partial class CodigoVoucher
+    public partial class Error
     {
 
         /// <summary>
-        /// codigoVoucher control.
+        /// lblMensaje control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox codigoVoucher;
-
-        /// <summary>
-        /// button_siguiente control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_siguiente;
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
     }
 }

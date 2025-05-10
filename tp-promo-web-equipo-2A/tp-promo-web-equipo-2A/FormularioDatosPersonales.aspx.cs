@@ -13,5 +13,17 @@ namespace tp_promo_web_equipo_2A
         {
 
         }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            string dni = textDni.Text;
+            string nombre = textNombre.Text;
+            string apellido = textApellido.Text;
+            string email = textEmail.Text;
+            string ciudad = textCiudad.Text;
+            string direccion = textDireccion.Text;
+            string cp = textCP.Text;
+            bool terminos = checkTerminos.Checked;
+        }
     }
 }
