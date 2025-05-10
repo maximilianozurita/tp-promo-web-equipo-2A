@@ -179,5 +179,29 @@ namespace negocio
                 accesoDatos.cerrarConexion();
             }
         }
+        public Articulo FindById(int id)
+        {
+            Articulo articulo = new Articulo();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("select a.id, a.Codigo, a.Nombre, a.Descripcion, a.Precio, a.IdMarca, m.Descripcion as marcaDescripcion, a.IdCategoria, c.Descripcion as categoriaDescripcion from ARTICULOS as a left join CATEGORIAS c on (c.id = a.IdCategoria) left join MARCAS m on (m.id=a.IdMarca) where a.id = @id");
+                datos.setearParametros("@id", id);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    articulo = InicializarObjeto(datos);
+                }
+                return articulo;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

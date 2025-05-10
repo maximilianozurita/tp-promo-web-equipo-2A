@@ -7,17 +7,15 @@
       <div class="row justify-content-center">
             <asp:Repeater ID="rptArticulos" runat="server">
                 <ItemTemplate>
-                    <div class="col-md-4 mb-4">
+                    <a href='/DetalleArticulo.aspx?id=<%#Eval("ID") %>' class="col-md-4 mb-4">
                       <div class="card text-center h-100">
                         <img src=<%# GetPrimeraImagen(Eval("Imagenes")) %> class="card-img-top">
                         <div class="card-body">
                           <h5 class="card-title"><%#Eval("Nombre") %></h5>
                           <p class="card-text"><%#Eval("Descripcion") %></p>
-                            <asp:HiddenField ID="HiddenFieldID" runat="server" Value=<%#Eval("ID") %> />
-                            <asp:Button ID="button_select" CssClass="btn btn-primary" runat="server" Text="¡Quiero este!" OnClick="button_select_Click" CommandArgument='<%#Eval("ID") %>' CommandName="articulo_id"/>
                         </div>
                       </div>
-                    </div>
+                    </a>
                 </ItemTemplate>
             </asp:Repeater>
       </div>
