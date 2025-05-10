@@ -87,7 +87,6 @@ namespace negocio
                     Descripcion = (string)datos.Lector["categoriaDescripcion"]
                 };
             }
-            //ToDo: Verificar que hacer en caso que no existan imagenes para este articulo
             articulo.Imagenes = new List<Imagen>();
             ImagenNegocio imgNegocio = new ImagenNegocio();
             articulo.Imagenes = imgNegocio.ListarByArticuloId(IdArticulo);
@@ -98,11 +97,11 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                // Eliminar todas las imagenes asociadas al articulo antes de eliminar el articulo
+                // Elimina todas las imagenes asociadas al articulo antes de eliminar el articulo
                 ImagenNegocio imgNegocio = new ImagenNegocio();
                 if (imgNegocio.EliminarByArticuloId(articuloEliminar.ID))
                 {
-                    //Eliminar articulo
+                    //Elimina articulo
                     datos.setearConsulta("DELETE FROM ARTICULOS WHERE Id=@Id");
                     datos.setearParametros("@Id", articuloEliminar.ID);
                     datos.ejecutarAccion();

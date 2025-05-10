@@ -24,6 +24,8 @@ namespace tp_promo_web_equipo_2A
             string direccion = textDireccion.Text;
             string cp = textCP.Text;
             bool terminos = checkTerminos.Checked;
+
+        //ToDo: Verificar todos los datos, tomar voucher id y articulo id guardado en sesion para procesar toda la operacion en la BD
         }
     }
 }

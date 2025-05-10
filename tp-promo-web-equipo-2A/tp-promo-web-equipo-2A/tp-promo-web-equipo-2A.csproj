@@ -68,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Error.aspx" />
-    <Content Include="formularioAprobado.aspx" />
+    <Content Include="aprobado.aspx" />
     <Content Include="FormularioDatosPersonales.aspx" />
     <Content Include="Global.asax" />
     <Content Include="ListadoArticulo.aspx" />
@@ -83,12 +83,12 @@
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
-    <Compile Include="formularioAprobado.aspx.cs">
-      <DependentUpon>formularioAprobado.aspx</DependentUpon>
+    <Compile Include="aprobado.aspx.cs">
+      <DependentUpon>aprobado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="formularioAprobado.aspx.designer.cs">
-      <DependentUpon>formularioAprobado.aspx</DependentUpon>
+    <Compile Include="aprobado.aspx.designer.cs">
+      <DependentUpon>aprobado.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormularioDatosPersonales.aspx.cs">
       <DependentUpon>FormularioDatosPersonales.aspx</DependentUpon>
@@ -136,6 +136,16 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dominio\dominio.csproj">
+      <Project>{5e0360c9-f2f5-47c4-8ad6-4d8bb7187364}</Project>
+      <Name>dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\negocio\negocio.csproj">
+      <Project>{c18d0e47-b220-42de-84b0-9c05f1ed7c1c}</Project>
+      <Name>negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

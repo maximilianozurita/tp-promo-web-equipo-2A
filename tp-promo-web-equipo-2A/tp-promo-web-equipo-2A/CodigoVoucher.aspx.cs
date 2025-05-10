@@ -19,10 +19,10 @@ namespace tp_promo_web_equipo_2A
             string codigo = codigoVoucher.Text;
 
             //ToDo: Crear condicional verificando codigo de articulo. Si esta ok, guardar en sesion y redirigir. Si no, mostrar etiqueta
-            Response.Redirect("ListadoArticulo.aspx", false);
             try
             {
-
+                //Session.Add("codigoSeleccionado", codigo);
+                Response.Redirect("ListadoArticulo.aspx", false);
             }
             catch (Exception ex)
             {
