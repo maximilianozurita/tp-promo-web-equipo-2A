@@ -73,6 +73,7 @@
     <Content Include="FormularioDatosPersonales.aspx" />
     <Content Include="Global.asax" />
     <Content Include="ListadoArticulo.aspx" />
+    <Content Include="Style\style.css" />
     <Content Include="Web.config" />
     <Content Include="CodigoVoucher.aspx" />
   </ItemGroup>

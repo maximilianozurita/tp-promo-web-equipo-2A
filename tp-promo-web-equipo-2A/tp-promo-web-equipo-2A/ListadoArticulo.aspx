@@ -7,15 +7,17 @@
       <div class="row justify-content-center">
             <asp:Repeater ID="rptArticulos" runat="server">
                 <ItemTemplate>
-                    <a href='/DetalleArticulo.aspx?id=<%#Eval("ID") %>' class="col-md-4 mb-4">
-                      <div class="card text-center h-100">
-                        <img src=<%# GetPrimeraImagen(Eval("Imagenes")) %> class="card-img-top">
-                        <div class="card-body">
-                          <h5 class="card-title"><%#Eval("Nombre") %></h5>
-                          <p class="card-text"><%#Eval("Descripcion") %></p>
+                <div class="col-md-4 mb-4 d-flex">
+                    <div class="card text-center w-100">
+                        <a href='/DetalleArticulo.aspx?id=<%#Eval("ID") %>'>
+                            <img src='<%# GetPrimeraImagen(Eval("Imagenes")) %>' class="card-img-top">
+                        </a>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title"><%#Eval("Nombre") %></h5>
+                            <p class="card-text"><%#Eval("Descripcion") %></p>
                         </div>
-                      </div>
-                    </a>
+                    </div>
+                </div>
                 </ItemTemplate>
             </asp:Repeater>
           <a href="CodigoVoucher.aspx" class="btn btn-secondary mt-3">Atras</a>

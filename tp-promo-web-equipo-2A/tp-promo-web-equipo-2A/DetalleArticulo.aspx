@@ -3,9 +3,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="container mt-5">
-    <div class="row">
+    <div class="row card-detalle">
 
-      <div class="col-md-6">
+      <div class="col-md-6 card-detalle-img">
         <div id="carouselArticulo" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
               <% bool isFirstImage = true;
@@ -13,7 +13,7 @@
                       string clase = isFirstImage ? "carousel-item active" : "carousel-item";
                       %>
                     <div class="<%= clase %>">
-                      <img src="<%= imagen.ImagenUrl %>" class="d-block w-100">
+                      <img src="<%= imagen.ImagenUrl %>" class="d-block w-100 img-class">
                     </div>
                 <%
                     isFirstImage = false; 
@@ -38,8 +38,10 @@
         <p>
           <%= articulo.Descripcion %>
         </p>
-        <a href="ListadoArticulo.aspx" class="btn btn-secondary mt-3">Atras</a>
-        <asp:Button ID="button_aceptar" CssClass="btn btn-primary" runat="server" Text="Seleccionar" OnClick="button_aceptar_Click" />
+          <div>
+            <asp:Button ID="button_aceptar" CssClass="btn btn-primary" runat="server" Text="Seleccionar" OnClick="button_aceptar_Click" />
+            <a href="ListadoArticulo.aspx" class="btn btn-secondary">Atras</a>
+          </div>
       </div>
     </div>
   </div>
