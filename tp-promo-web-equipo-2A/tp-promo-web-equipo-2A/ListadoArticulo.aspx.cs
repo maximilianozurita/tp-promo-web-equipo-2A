@@ -34,7 +34,7 @@ namespace tp_promo_web_equipo_2A
 
         protected void button_select_Click(object sender, EventArgs e)
         {
-            string id = ((Button)sender).CommandArgument;
+            int id = int.Parse(((Button)sender).CommandArgument);
             //ToDo: Verificar y guardar el id del articulo en variable sesion para reutilizar una vez que se carguen todos los datos personales.
             Session.Add("idArticulo", id);
             Response.Redirect("FormularioDatosPersonales.aspx", false);

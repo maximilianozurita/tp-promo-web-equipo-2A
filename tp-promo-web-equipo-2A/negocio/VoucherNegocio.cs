@@ -10,24 +10,23 @@ namespace negocio
 {
     public class VoucherNegocio
     {
-        public bool Asociar(int idCliente, int idVoucher, int idArticulo)
+        public bool Asociar(int idCliente, string idVoucher, int idArticulo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
 
                 datos.setearConsulta(
-                    "update VOUCHER set " +
+                    "update Vouchers set " +
                     "IdCliente=@IdCliente , " +
                     "IdArticulo=@idArticulo ,"+
-                    "FechaCanje = @fechaCanje" +
+                    "FechaCanje = (GETDATE())" +
                     "where " +
                     "CodigoVoucher=@codigoVoucher;");
            
                 datos.setearParametros("@idCliente", idCliente);
                 datos.setearParametros("@codigoVoucher", idVoucher);
                 datos.setearParametros("@idArticulo", idArticulo);
-                datos.setearParametros("@fechaCanje", DateTime.Now);
                 datos.ejecutarAccion();
             }
             catch (Exception ex) 

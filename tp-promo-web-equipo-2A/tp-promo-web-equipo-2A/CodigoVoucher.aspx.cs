@@ -30,7 +30,7 @@ namespace tp_promo_web_equipo_2A
             }
             else
             {
-                Session.Add("idVoucher", codigo);
+                Session.Add("codigoVoucher", codigo);
                 Response.Redirect("ListadoArticulo.aspx", false);
             }
         }

@@ -12,8 +12,6 @@ namespace tp_promo_web_equipo_2A
 {
     public partial class FormularioDatosPersonales : System.Web.UI.Page
     {
-        private ClienteNegocio _clienteNegocio = new ClienteNegocio();
-        private Cliente _cliente = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -31,34 +29,35 @@ namespace tp_promo_web_equipo_2A
             bool v7 = Validacion.setearEstiloValidacion(textCP, validCp);
             bool v8 = checkTerminos.Checked;
             if (!(v1&&v2&&v3&&v4&&v5&&v6&&v7&&v8)) return;
-            string idArticulo = (string)Session["idArticulo"];
-            string idVoucher = (string)Session["idVoucher"];
-            if(idVoucher == null)
+            int idArticulo = (int)Session["idArticulo"];
+            string codigoVoucher = (string)Session["codigoVoucher"];
+            if(codigoVoucher == null)
             {
                 Response.Redirect("Error.aspx?message=" + "No se pudo recuperar el codigo de Voucher", false);
                 return;
             }
-            if(idArticulo == null) 
+            if(idArticulo == 0) 
             {
                 Response.Redirect("Error.aspx?message=" + "No se pudo recuperar el articulo", false);
                 return;
             }
-            
-            if (this._cliente == null)
+            int idCliente= (int)Session["idCliente"];
+            if (idCliente == 0)
             {
-                this._cliente = new Cliente();
-                this._cliente.Documento = textDni.Text;
-                this._cliente.Nombre = textNombre.Text;
-                this._cliente.Apellido = textApellido.Text;
-                this._cliente.Email = textEmail.Text;
-                this._cliente.Ciudad = textCiudad.Text;
-                this._cliente.Direccion = textDireccion.Text;
-                this._cliente.CP = int.Parse(textCP.Text);
-                this._clienteNegocio.SetCliente(this._cliente);
+                Cliente cliente = new Cliente();
+                cliente.Documento = textDni.Text;
+                cliente.Nombre = textNombre.Text;
+                cliente.Apellido = textApellido.Text;
+                cliente.Email = textEmail.Text;
+                cliente.Ciudad = textCiudad.Text;
+                cliente.Direccion = textDireccion.Text;
+                cliente.CP = int.Parse(textCP.Text);
+                ClienteNegocio clienteNegocio = new ClienteNegocio();
+                idCliente = clienteNegocio.SetCliente(cliente);
             }
             
             VoucherNegocio voucherNegocio = new VoucherNegocio();
-            bool res = voucherNegocio.Asociar(this._cliente.Id, int.Parse(idVoucher), int.Parse(idArticulo));
+            bool res = voucherNegocio.Asociar(idCliente, codigoVoucher, idArticulo);
             if (res)
             {
                 Response.Redirect("CodigoVoucher.aspx", false);
@@ -75,8 +74,9 @@ namespace tp_promo_web_equipo_2A
 
         protected void textDni_TextChanged(object sender, EventArgs e)
         {
-            this._cliente = _clienteNegocio.GetCliente(textDni.Text);
-            if (this._cliente == null)
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+            Cliente cliente = clienteNegocio.GetCliente(textDni.Text);
+            if (cliente == null)
             {
                 textNombre.Text = string.Empty;
                 textApellido.Text = string.Empty;
@@ -84,16 +84,20 @@ namespace tp_promo_web_equipo_2A
                 textCiudad.Text = string.Empty;
                 textDireccion.Text = string.Empty;
                 textCP.Text = string.Empty;
+                Session.Add("idCliente", null);
             }
             else
             {
-                textNombre.Text = this._cliente.Nombre;
-                textApellido.Text = this._cliente.Apellido;
-                textEmail.Text = this._cliente.Email;
-                textCiudad.Text = this._cliente.Ciudad;
-                textDireccion.Text = this._cliente.Direccion;
-                textCP.Text = this._cliente.CP.ToString();
+                textNombre.Text = cliente.Nombre;
+                textApellido.Text = cliente.Apellido;
+                textEmail.Text = cliente.Email;
+                textCiudad.Text = cliente.Ciudad;
+                textDireccion.Text = cliente.Direccion;
+                textCP.Text = cliente.CP.ToString();
+                Session.Add("idCliente", cliente.Id);
             }
+            
+
         }
 
         protected void checkTerminos_CheckedChanged(object sender, EventArgs e)
