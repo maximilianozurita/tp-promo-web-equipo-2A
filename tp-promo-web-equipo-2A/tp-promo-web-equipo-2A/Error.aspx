@@ -6,7 +6,7 @@
     <h1>Hubo un problema</h1>
     <asp:Label ID="lblMensaje" runat="server" />
     <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Error</h4>
+        <h4 class="alert-heading"> <%= msg %> </h4>
     </div>
     <a href="/CodigoVoucher.aspx" class="btn btn-primary">Inicio</a>
 </asp:Content>

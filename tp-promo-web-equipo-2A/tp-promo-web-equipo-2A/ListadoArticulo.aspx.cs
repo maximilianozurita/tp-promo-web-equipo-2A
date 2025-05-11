@@ -42,6 +42,7 @@ namespace tp_promo_web_equipo_2A
             }
             catch (Exception ex)
             {
+                Session.Add("error", ex.Message);
                 Response.Redirect("Error.aspx", false);
             }
         }

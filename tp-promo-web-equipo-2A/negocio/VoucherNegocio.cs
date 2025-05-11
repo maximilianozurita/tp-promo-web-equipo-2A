@@ -29,7 +29,7 @@ namespace negocio
                 datos.setearParametros("@idArticulo", idArticulo);
                 datos.ejecutarAccion();
             }
-            catch (Exception ex) 
+            catch
             {
                 return false;
             }

@@ -37,7 +37,7 @@ namespace negocio
                 cliente.Id = (int)datos.Lector["Id"];
                 return cliente;
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }
@@ -64,7 +64,7 @@ namespace negocio
                 int idCliente = datos.ejecutarAccionAndReturnId();
                 return idCliente;
             }
-            catch (Exception ex)
+            catch
             {
                 return 0;
             }

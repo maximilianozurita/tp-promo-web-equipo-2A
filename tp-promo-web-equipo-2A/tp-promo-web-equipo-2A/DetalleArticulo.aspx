@@ -9,14 +9,16 @@
         <div id="carouselArticulo" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
               <% bool isFirstImage = true;
-                  foreach (dominio.Imagen imagen in articulo.Imagenes) {%>
-                    <div class="carousel-item<%= isFirstImage ? " active" : "" %>">
+                  foreach (dominio.Imagen imagen in articulo.Imagenes) {
+                      string clase = isFirstImage ? "carousel-item active" : "carousel-item";
+                      %>
+                    <div class="<%= clase %>">
                       <img src="<%= imagen.ImagenUrl %>" class="d-block w-100">
                     </div>
-              <%
-                    isFirstImage = false;
-                  }
-              %>
+                <%
+                    isFirstImage = false; 
+                } 
+                %>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselArticulo" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
