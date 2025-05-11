@@ -65,7 +65,7 @@ namespace tp_promo_web_equipo_2A
             bool res = voucherNegocio.Asociar(idCliente, codigoVoucher, idArticulo);
             if (res)
             {
-                Response.Redirect("CodigoVoucher.aspx", false);
+                Response.Redirect("Aprobado.aspx", false);
             }
             else
             {

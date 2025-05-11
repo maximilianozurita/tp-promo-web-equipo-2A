@@ -67,8 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Aceptado.aspx" />
     <Content Include="Error.aspx" />
-    <Content Include="aprobado.aspx" />
+    <Content Include="Aprobado.aspx" />
     <Content Include="FormularioDatosPersonales.aspx" />
     <Content Include="Global.asax" />
     <Content Include="ListadoArticulo.aspx" />
@@ -76,6 +77,13 @@
     <Content Include="CodigoVoucher.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aceptado.aspx.cs">
+      <DependentUpon>Aceptado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aceptado.aspx.designer.cs">
+      <DependentUpon>Aceptado.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -83,12 +91,12 @@
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
-    <Compile Include="aprobado.aspx.cs">
-      <DependentUpon>aprobado.aspx</DependentUpon>
+    <Compile Include="Aprobado.aspx.cs">
+      <DependentUpon>Aprobado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="aprobado.aspx.designer.cs">
-      <DependentUpon>aprobado.aspx</DependentUpon>
+    <Compile Include="Aprobado.aspx.designer.cs">
+      <DependentUpon>Aprobado.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormularioDatosPersonales.aspx.cs">
       <DependentUpon>FormularioDatosPersonales.aspx</DependentUpon>

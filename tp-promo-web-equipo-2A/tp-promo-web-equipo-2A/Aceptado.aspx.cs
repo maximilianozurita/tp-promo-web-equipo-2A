@@ -7,10 +7,15 @@ using System.Web.UI.WebControls;
 
 namespace tp_promo_web_equipo_2A
 {
-    public partial class Aprobado : System.Web.UI.Page
+    public partial class Error : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                string message = Request.QueryString["message"] ?? "Error desconocido";
+                lblMensaje.Text = Server.HtmlEncode(message);
+            }
         }
     }
 }
