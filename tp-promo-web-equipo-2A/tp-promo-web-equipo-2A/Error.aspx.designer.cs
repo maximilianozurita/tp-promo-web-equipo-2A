@@ -11,7 +11,7 @@ namespace tp_promo_web_equipo_2A
 {
 
 
-    public partial class Error
+    public partial class Aprobado
     {
 
         /// <summary>

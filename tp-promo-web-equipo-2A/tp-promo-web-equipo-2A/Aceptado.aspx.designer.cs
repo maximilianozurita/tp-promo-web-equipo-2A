@@ -11,7 +11,16 @@ namespace tp_promo_web_equipo_2A
 {
 
 
-    public partial class formularioAprobado
+    public partial class Error
     {
+
+        /// <summary>
+        /// Control lblMensaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
     }
 }

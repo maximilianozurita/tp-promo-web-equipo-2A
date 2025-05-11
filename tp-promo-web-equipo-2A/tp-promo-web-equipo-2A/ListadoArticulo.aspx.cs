@@ -31,5 +31,13 @@ namespace tp_promo_web_equipo_2A
                 return lista[0].ImagenUrl;
             return "https://www.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-600nw-1037719192.jpg";
         }
+
+        protected void button_select_Click(object sender, EventArgs e)
+        {
+            int id = int.Parse(((Button)sender).CommandArgument);
+            //ToDo: Verificar y guardar el id del articulo en variable sesion para reutilizar una vez que se carguen todos los datos personales.
+            Session.Add("idArticulo", id);
+            Response.Redirect("FormularioDatosPersonales.aspx", false);
+        }
     }
 }

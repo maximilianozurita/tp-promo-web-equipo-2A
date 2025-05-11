@@ -10,57 +10,41 @@ namespace negocio
 {
     public class VoucherNegocio
     {
-        public List<Voucher> Listar()
+        public bool Asociar(int idCliente, string idVoucher, int idArticulo)
         {
-            List<Voucher> lista = new List<Voucher>();
             AccesoDatos datos = new AccesoDatos();
-
             try
             {
-                datos.setearConsulta("select * from VOUCHERS");
-                datos.ejecutarLectura();
-                while (datos.Lector.Read())
-                {
-                    Voucher voucher = new Voucher();
-                    object tempCodigo = datos.Lector["CodigoVoucher"];
-                    voucher.CodigoVoucher = (string)datos.Lector["CodigoVoucher"];
-                    if (!(datos.Lector["FechaCanje"] is DBNull)) 
-                    {
-                        voucher.FechaCanje = (DateTime)datos.Lector["FechaCanje"];
-                    }
-                    if (!(datos.Lector["FechaCanje"] is DBNull))
-                    {
-                        voucher.IdCliente = (int)datos.Lector["IdCliente"];
-                    }
-                    if (!(datos.Lector["FechaCanje"] is DBNull))
-                    {
-                        voucher.IdArticulo = (int)datos.Lector["IdArticulo"];
-                    }
-                    lista.Add(voucher);
-                }
-                return lista;
+
+                datos.setearConsulta(
+                    "update Vouchers set " +
+                    "IdCliente=@IdCliente , " +
+                    "IdArticulo=@idArticulo ,"+
+                    "FechaCanje = (GETDATE())" +
+                    "where " +
+                    "CodigoVoucher=@codigoVoucher;");
+           
+                datos.setearParametros("@idCliente", idCliente);
+                datos.setearParametros("@codigoVoucher", idVoucher);
+                datos.setearParametros("@idArticulo", idArticulo);
+                datos.ejecutarAccion();
             }
-            catch (Exception ex)
+            catch (Exception ex) 
             {
-                throw ex;
+                return false;
             }
             finally
             {
                 datos.cerrarConexion();
             }
-        }
-
-        public bool Asociar()
-        {
-
             return true;
         }
 
         public bool EstaDisponible(string code, out string errMensaje)
         {
+            AccesoDatos datos = new AccesoDatos();
             try
             {
-                AccesoDatos datos = new AccesoDatos();
                 string query = "select * from VOUCHERS where CodigoVoucher = @codigo";
                 datos.setearConsulta(query);
                 datos.setearParametros("@codigo", code);
@@ -85,6 +69,8 @@ namespace negocio
                 errMensaje = "Error Interno : " + ex.Message;
                 return false;
             }
+
+            finally {  datos.cerrarConexion(); }
         }
     }
 }

@@ -67,9 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DetalleArticulo.aspx" />
+    <Content Include="Aceptado.aspx" />
     <Content Include="Error.aspx" />
-    <Content Include="aprobado.aspx" />
+    <Content Include="Aprobado.aspx" />
     <Content Include="FormularioDatosPersonales.aspx" />
     <Content Include="Global.asax" />
     <Content Include="ListadoArticulo.aspx" />
@@ -77,12 +77,12 @@
     <Content Include="CodigoVoucher.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DetalleArticulo.aspx.cs">
-      <DependentUpon>DetalleArticulo.aspx</DependentUpon>
+    <Compile Include="Aceptado.aspx.cs">
+      <DependentUpon>Aceptado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DetalleArticulo.aspx.designer.cs">
-      <DependentUpon>DetalleArticulo.aspx</DependentUpon>
+    <Compile Include="Aceptado.aspx.designer.cs">
+      <DependentUpon>Aceptado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
@@ -91,12 +91,12 @@
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
-    <Compile Include="aprobado.aspx.cs">
-      <DependentUpon>aprobado.aspx</DependentUpon>
+    <Compile Include="Aprobado.aspx.cs">
+      <DependentUpon>Aprobado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="aprobado.aspx.designer.cs">
-      <DependentUpon>aprobado.aspx</DependentUpon>
+    <Compile Include="Aprobado.aspx.designer.cs">
+      <DependentUpon>Aprobado.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormularioDatosPersonales.aspx.cs">
       <DependentUpon>FormularioDatosPersonales.aspx</DependentUpon>
@@ -130,6 +130,7 @@
     <Compile Include="CodigoVoucher.aspx.designer.cs">
       <DependentUpon>CodigoVoucher.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Validaciones.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
