@@ -54,6 +54,11 @@ namespace tp_promo_web_equipo_2A
                 cliente.CP = int.Parse(textCP.Text);
                 ClienteNegocio clienteNegocio = new ClienteNegocio();
                 idCliente = clienteNegocio.SetCliente(cliente);
+                if(idCliente <= 0)
+                {
+                    Response.Redirect("Error.aspx?message=" + "No se pudo Agregar el cliente", false);
+                    return;
+                }
             }
             
             VoucherNegocio voucherNegocio = new VoucherNegocio();
@@ -84,7 +89,7 @@ namespace tp_promo_web_equipo_2A
                 textCiudad.Text = string.Empty;
                 textDireccion.Text = string.Empty;
                 textCP.Text = string.Empty;
-                Session.Add("idCliente", null);
+                Session.Add("idCliente", 0);
             }
             else
             {

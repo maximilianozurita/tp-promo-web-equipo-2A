@@ -51,7 +51,8 @@ namespace negocio
             try
             {
                 string query = @"insert into CLIENTES (Documento, Email, Nombre, Apellido, Direccion, Ciudad, CP) 
-                        values (@documento, @email, @nombre, @apellido, @direccion, @ciudad, @CP);";
+                        values (@documento, @email, @nombre, @apellido, @direccion, @ciudad, @CP);
+                        select scope_identity();";
                 datos.setearConsulta(query);
                 datos.setearParametros("@documento", cliente.Documento);
                 datos.setearParametros("@email", cliente.Email);
