@@ -2,23 +2,21 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="container mt-5">
+     <div class="container mt-5">
     <div class="row">
+
       <div class="col-md-6">
         <div id="carouselArticulo" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
-            <% 
-                bool primerImagen = true; 
-                foreach (dominio.Imagen imagen in articuloCargado.Imagenes) { 
-            %>
-                    <div class='carousel-item <%= primerImagen ? "active" : "" %>'>
+              <% bool isFirstImage = true;
+                  foreach (dominio.Imagen imagen in articulo.Imagenes) {%>
+                    <div class="carousel-item<%= isFirstImage ? " active" : "" %>">
                       <img src="<%= imagen.ImagenUrl %>" class="d-block w-100">
                     </div>
-            <% 
-                    primerImagen = false; 
-                }
-            %>
-
+              <%
+                    isFirstImage = false;
+                  }
+              %>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselArticulo" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -30,14 +28,16 @@
       </div>
 
       <div class="col-md-6">
-            <h2><%= articuloCargado.Nombre %></h2>
-            <p><strong>Marca:</strong> <%= articuloCargado.Marca %></p>
-            <p><strong>Categoría:</strong> <%= articuloCargado.Categoria %></p>
-            <p><strong>Código:</strong> <%= articuloCargado.Codigo %></p>
-            <p><strong>Descripción:</strong></p>
-            <p><%= articuloCargado.Descripcion %></p>
-            <asp:Button ID="button_submit" CssClass="btn btn-primary" runat="server" Text="Aceptar" OnClick="button_submit_Click"/>
-            <a href="ListadoArticulo.aspx" class="btn btn-secondary mt-3">Volver al listado</a>
+        <h2><%= articulo.Nombre %></h2>
+        <p><strong>Marca:</strong><%= articulo.Marca %></p>
+        <p><strong>Categoría:</strong> <%= articulo.Categoria %></p>
+        <p><strong>Código:</strong> <%= articulo.Codigo %></p>
+        <p><strong>Descripción:</strong></p>
+        <p>
+          <%= articulo.Descripcion %>
+        </p>
+        <a href="ListadoArticulo.aspx" class="btn btn-secondary mt-3">Volver al listado</a>
+        <asp:Button ID="button_aceptar" CssClass="btn btn-primary" runat="server" Text="Seleccionar" OnClick="button_aceptar_Click" />
       </div>
     </div>
   </div>

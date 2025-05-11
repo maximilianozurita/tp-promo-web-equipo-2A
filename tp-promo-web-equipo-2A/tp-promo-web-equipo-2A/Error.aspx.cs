@@ -11,6 +11,7 @@ namespace tp_promo_web_equipo_2A
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //ToDo: Tomar msj de error y mostrarlo
         }
     }
 }

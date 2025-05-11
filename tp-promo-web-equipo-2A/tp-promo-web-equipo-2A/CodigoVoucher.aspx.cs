@@ -18,10 +18,7 @@ namespace tp_promo_web_equipo_2A
         protected void button_siguiente_Click(object sender, EventArgs e)
         {
             string codigo = codigoVoucher.Text;
-
-            //ToDo: Crear condicional verificando codigo de articulo. Si esta ok, guardar en sesion y redirigir. Si no, mostrar etiqueta
-
-            var voucherNegocio = new VoucherNegocio();
+            VoucherNegocio voucherNegocio = new VoucherNegocio();
             string mensaje;
             bool res = voucherNegocio.EstaDisponible(codigo, out mensaje);
             if (!res)
