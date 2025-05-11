@@ -44,7 +44,7 @@ namespace negocio
 
             finally { datos.cerrarConexion(); }
         }
-        public bool SetCliente(Cliente cliente)
+        public int SetCliente(Cliente cliente)
         {
 
             AccesoDatos datos = new AccesoDatos();
@@ -61,13 +61,11 @@ namespace negocio
                 datos.setearParametros("@ciudad", cliente.Ciudad);
                 datos.setearParametros("@cp", cliente.CP);
                 int idCliente = datos.ejecutarAccionAndReturnId();
-                if (idCliente == 0)
-                    return false;
-                return true;
+                return idCliente;
             }
             catch (Exception ex)
             {
-                return false;
+                return 0;
             }
 
             finally { datos.cerrarConexion(); }

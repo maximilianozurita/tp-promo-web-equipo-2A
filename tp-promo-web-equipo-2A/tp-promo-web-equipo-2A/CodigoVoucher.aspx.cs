@@ -21,15 +21,16 @@ namespace tp_promo_web_equipo_2A
 
             //ToDo: Crear condicional verificando codigo de articulo. Si esta ok, guardar en sesion y redirigir. Si no, mostrar etiqueta
 
-            var datos = new VoucherNegocio();
+            var voucherNegocio = new VoucherNegocio();
             string mensaje;
-            bool res = datos.EstaDisponible(codigo, out mensaje);
+            bool res = voucherNegocio.EstaDisponible(codigo, out mensaje);
             if (!res)
             {
                 Response.Redirect("Error.aspx?message="+mensaje,false);
             }
             else
             {
+                Session.Add("idVoucher", codigo);
                 Response.Redirect("ListadoArticulo.aspx", false);
             }
         }

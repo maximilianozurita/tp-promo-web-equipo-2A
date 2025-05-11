@@ -10,7 +10,7 @@ namespace negocio
 {
     public class VoucherNegocio
     {
-        public bool Asociar(Cliente cliente, Voucher voucher, Articulo articulo)
+        public bool Asociar(int idCliente, int idVoucher, int idArticulo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
@@ -24,9 +24,9 @@ namespace negocio
                     "where " +
                     "CodigoVoucher=@codigoVoucher;");
            
-                datos.setearParametros("@idCliente", cliente.Id);
-                datos.setearParametros("@codigoVoucher", voucher.CodigoVoucher);
-                datos.setearParametros("@idArticulo", articulo.ID);
+                datos.setearParametros("@idCliente", idCliente);
+                datos.setearParametros("@codigoVoucher", idVoucher);
+                datos.setearParametros("@idArticulo", idArticulo);
                 datos.setearParametros("@fechaCanje", DateTime.Now);
                 datos.ejecutarAccion();
             }
