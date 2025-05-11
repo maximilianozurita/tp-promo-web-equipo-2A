@@ -8,7 +8,7 @@
   <div class="row g-3 needs-validation">
     <div class="col-md-4">
       <label for="dni" class="form-label">DNI</label>
-        <asp:TextBox runat="server" type="text" CssClass="form-control" ID="textDni" placeholder="xxxx"/>
+        <asp:TextBox runat="server" type="text" CssClass="form-control" ID="textDni" placeholder="xxxx" AutoPostBack="true" OnTextChanged="textDni_TextChanged"/>
         <div class="invalid-feedback visually-hidden">Falta DNI.</div>
     </div>
 
@@ -53,7 +53,7 @@
 
     <div class="col-12">
       <div class="form-check">
-        <asp:CheckBox runat="server" CssClass="form-check-input" ID="checkTerminos"/>
+        <asp:CheckBox runat="server" CssClass="form-check-input" ID="checkTerminos"  />
         <label class="form-check-label">
           Acepto los términos y condiciones.
         </label>
@@ -61,7 +61,7 @@
     </div>
 
     <div class="col-12">
-        <asp:Button ID="btnAceptar"  CssClass="btn btn-primary" runat="server" Text="¡Participar!" onClick="btnAceptar_Click" />
+        <asp:Button ID="btnAceptar"  CssClass="btn btn-primary" runat="server" Text="¡Participar!" Enabled="False" onClick="btnAceptar_Click" />
     </div>
   </div>
 </div>

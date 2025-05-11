@@ -36,7 +36,7 @@ namespace tp_promo_web_equipo_2A
         {
             string id = ((Button)sender).CommandArgument;
             //ToDo: Verificar y guardar el id del articulo en variable sesion para reutilizar una vez que se carguen todos los datos personales.
-            //Session.Add("articuloSeleccionado", id);
+            Session.Add("articuloSeleccionado", id);
             Response.Redirect("FormularioDatosPersonales.aspx", false);
         }
     }

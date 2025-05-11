@@ -11,7 +11,7 @@ namespace tp_promo_web_equipo_2A
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -25,7 +25,9 @@ namespace tp_promo_web_equipo_2A
             string cp = textCP.Text;
             bool terminos = checkTerminos.Checked;
 
-        //ToDo: Verificar todos los datos, tomar voucher id y articulo id guardado en sesion para procesar toda la operacion en la BD
+            //ToDo: Verificar todos los datos, tomar voucher id y articulo id guardado en sesion para procesar toda la operacion en la BD
+            string codigo = (string)Session["articuloSeleccionado"];
+
         }
     }
 }
