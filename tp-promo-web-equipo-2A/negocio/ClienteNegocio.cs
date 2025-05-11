@@ -12,7 +12,7 @@ namespace negocio
     public class ClienteNegocio
     {
 
-        public Cliente GetCliente(string dni, out string message)
+        public Cliente GetCliente(string dni)
         {
             AccesoDatos datos = new AccesoDatos();
             try
@@ -22,7 +22,6 @@ namespace negocio
                 datos.setearParametros("@documento", dni);
                 datos.ejecutarLectura();
                 datos.Lector.Read();
-                message = string.Empty;
                 if (!datos.Lector.HasRows)
                 {
                     return null;
@@ -34,20 +33,18 @@ namespace negocio
                 cliente.Apellido = (string)datos.Lector["Apellido"];
                 cliente.Direccion = (string)datos.Lector["Direccion"];
                 cliente.Ciudad = (string)datos.Lector["Ciudad"];
-                cliente.CP = (string)datos.Lector["CP"];
+                cliente.CP = (int)datos.Lector["CP"];
                 cliente.Id = (int)datos.Lector["Id"];
                 return cliente;
             }
             catch (Exception ex)
             {
-                message = ex.Message;
                 return null;
-                
             }
 
             finally { datos.cerrarConexion(); }
         }
-        public bool AgreagarCliente(Cliente cliente)
+        public bool SetCliente(Cliente cliente)
         {
 
             AccesoDatos datos = new AccesoDatos();
@@ -71,7 +68,6 @@ namespace negocio
             catch (Exception ex)
             {
                 return false;
-
             }
 
             finally { datos.cerrarConexion(); }

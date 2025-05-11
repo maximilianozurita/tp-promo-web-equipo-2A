@@ -53,7 +53,7 @@
 
     <div class="col-12">
       <div class="form-check">
-        <asp:CheckBox runat="server" CssClass="form-check-input" ID="checkTerminos"  />
+        <asp:CheckBox runat="server" CssClass="form-check-input" ID="checkTerminos" AutoPostBack="true" OnCheckedChanged="checkTerminos_CheckedChanged" />
         <label class="form-check-label">
           Acepto los términos y condiciones.
         </label>

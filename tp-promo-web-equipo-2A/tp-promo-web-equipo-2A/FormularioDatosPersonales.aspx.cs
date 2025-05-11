@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dominio;
+using negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +11,7 @@ namespace tp_promo_web_equipo_2A
 {
     public partial class FormularioDatosPersonales : System.Web.UI.Page
     {
+        private ClienteNegocio _clienteNegocio = new ClienteNegocio();
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -28,6 +31,28 @@ namespace tp_promo_web_equipo_2A
             //ToDo: Verificar todos los datos, tomar voucher id y articulo id guardado en sesion para procesar toda la operacion en la BD
             string codigo = (string)Session["articuloSeleccionado"];
 
+        }
+
+        protected void textDni_TextChanged(object sender, EventArgs e)
+        {
+            Cliente cliente = _clienteNegocio.GetCliente(textDni.Text);
+            if (cliente == null) return;
+
+            textNombre.Text = cliente.Nombre;
+            textApellido.Text = cliente.Apellido;
+            textEmail.Text = cliente.Email;
+            textCiudad.Text = cliente.Ciudad;
+            textDireccion.Text = cliente.Direccion;
+            textCP.Text = cliente.CP.ToString();
+        }
+
+        protected void checkTerminos_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            if(checkTerminos.Checked)
+            {
+                    btnAceptar.Enabled = true;
+            }
         }
     }
 }

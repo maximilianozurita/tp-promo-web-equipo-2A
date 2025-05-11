@@ -15,6 +15,6 @@ namespace dominio
         public string Email { get; set; }
         public string Direccion { get; set; }
         public string Ciudad { get; set; }
-        public string CP { get; set; }
+        public int CP { get; set; }
     }
 }
