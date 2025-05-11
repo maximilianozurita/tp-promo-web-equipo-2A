@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services.Description;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace tp_promo_web_equipo_2A
@@ -17,18 +18,54 @@ namespace tp_promo_web_equipo_2A
             
         }
 
+        protected void SetearError(TextBox textBox, HtmlGenericControl div, string msj)
+        {
+            div.Attributes["class"] = "invalid-feedback";
+            textBox.CssClass = "form-control is-invalid";
+            div.InnerHtml = msj;
+        }
+
+        protected void InitValidacion(TextBox textBox, HtmlGenericControl div)
+        {
+            div.Attributes["class"] = "invalid-feedback visually-hidden";
+            textBox.CssClass = "form-control";
+            div.InnerHtml = "";
+        }
+
+        protected bool ValidateInputs ()
+        {
+            var campos = new List<(TextBox textBox, HtmlGenericControl div)>
+            {
+                (textDni, validDNI),
+                (textNombre, validNombre),
+                (textApellido, validApellido),
+                (textEmail, validEmail),
+                (textCiudad, validCiudad),
+                (textDireccion, validDireccion),
+                (textCP, validCp)
+            };
+
+            bool valid = true;
+            foreach (var (textBox, div) in campos)
+            {
+                InitValidacion(textBox, div);
+
+                string errorMsj = "";
+                if (!Validacion.ValidarTextInputs(textBox, ref errorMsj))
+                {
+                    SetearError(textBox, div, errorMsj);
+                    valid = false;
+                }
+            }
+
+            return valid && checkTerminos.Checked;
+        }
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            //ToDo: Verificar todos los datos, tomar voucher id y articulo id guardado en sesion para procesar toda la operacion en la BD
-            bool v1 = Validacion.setearEstiloValidacion(textDni, validDNI);
-            bool v2 = Validacion.setearEstiloValidacion(textNombre, validNombre);
-            bool v3 = Validacion.setearEstiloValidacion(textApellido, validApellido);
-            bool v4 = Validacion.setearEstiloValidacion(textEmail, validEmail);
-            bool v5 = Validacion.setearEstiloValidacion(textCiudad, validCiudad);
-            bool v6= Validacion.setearEstiloValidacion(textDireccion, validDireccion);
-            bool v7 = Validacion.setearEstiloValidacion(textCP, validCp);
-            bool v8 = checkTerminos.Checked;
-            if (!(v1&&v2&&v3&&v4&&v5&&v6&&v7&&v8)) return;
+            if (!ValidateInputs())
+            {
+                return;
+            }
             Articulo articulo = (Articulo)Session["articuloSeleccionado"];
             int idArticulo = (int)articulo.ID;
             string codigoVoucher = (string)Session["codigoVoucher"];
