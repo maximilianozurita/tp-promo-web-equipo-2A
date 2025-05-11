@@ -18,6 +18,7 @@
                     </a>
                 </ItemTemplate>
             </asp:Repeater>
+          <a href="CodigoVoucher.aspx" class="btn btn-secondary mt-3">Atras</a>
       </div>
     </div>
 </asp:Content>

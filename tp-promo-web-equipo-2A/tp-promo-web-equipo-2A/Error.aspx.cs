@@ -14,7 +14,11 @@ namespace tp_promo_web_equipo_2A
         {
             if (Session["error"] != null)
             {
-                msg = Session["error"].ToString();
+                msg = "Hubo un problema: " + Session["error"].ToString();
+            }
+            else if (Session["warn"] != null)
+            {
+                msg = Session["warn"].ToString();
             }
         }
     }

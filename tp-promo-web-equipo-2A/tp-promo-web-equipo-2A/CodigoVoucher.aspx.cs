@@ -23,7 +23,8 @@ namespace tp_promo_web_equipo_2A
             bool res = voucherNegocio.EstaDisponible(codigo, out mensaje);
             if (!res)
             {
-                Response.Redirect("Error.aspx?message="+mensaje,false);
+                Session.Add("warn", mensaje);
+                Response.Redirect("Error.aspx",false);
             }
             else
             {

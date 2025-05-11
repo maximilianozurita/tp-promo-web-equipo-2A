@@ -38,7 +38,7 @@
         <p>
           <%= articulo.Descripcion %>
         </p>
-        <a href="ListadoArticulo.aspx" class="btn btn-secondary mt-3">Volver al listado</a>
+        <a href="ListadoArticulo.aspx" class="btn btn-secondary mt-3">Atras</a>
         <asp:Button ID="button_aceptar" CssClass="btn btn-primary" runat="server" Text="Seleccionar" OnClick="button_aceptar_Click" />
       </div>
     </div>

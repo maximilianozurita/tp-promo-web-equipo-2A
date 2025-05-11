@@ -14,8 +14,6 @@ namespace tp_promo_web_equipo_2A
         public Articulo articulo = new Articulo();
         protected void Page_Load(object sender, EventArgs e)
 		{
-            if (!IsPostBack)
-            {
                 try
                 {
                     int id = int.Parse(Request.QueryString["ID"]);
@@ -27,7 +25,7 @@ namespace tp_promo_web_equipo_2A
                     Session.Add("error", ex.Message);
                     Response.Redirect("Error.aspx", false);
                 }
-            }
+           
         }
 
         protected void button_aceptar_Click(object sender, EventArgs e)

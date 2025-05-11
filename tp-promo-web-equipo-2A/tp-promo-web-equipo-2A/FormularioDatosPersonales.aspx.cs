@@ -29,16 +29,19 @@ namespace tp_promo_web_equipo_2A
             bool v7 = Validacion.setearEstiloValidacion(textCP, validCp);
             bool v8 = checkTerminos.Checked;
             if (!(v1&&v2&&v3&&v4&&v5&&v6&&v7&&v8)) return;
-            int idArticulo = (int)Session["idArticulo"];
+            Articulo articulo = (Articulo)Session["articuloSeleccionado"];
+            int idArticulo = (int)articulo.ID;
             string codigoVoucher = (string)Session["codigoVoucher"];
             if(codigoVoucher == null)
             {
-                Response.Redirect("Error.aspx?message=" + "No se pudo recuperar el codigo de Voucher", false);
+                Session.Add("error", "No se pudo recuperar el codigo de Voucher");
+                Response.Redirect("Error.aspx", false);
                 return;
             }
             if(idArticulo == 0) 
             {
-                Response.Redirect("Error.aspx?message=" + "No se pudo recuperar el articulo", false);
+                Session.Add("error", "No se pudo recuperar el articulo");
+                Response.Redirect("Error.aspx", false);
                 return;
             }
             int idCliente= (int)Session["idCliente"];
@@ -56,7 +59,8 @@ namespace tp_promo_web_equipo_2A
                 idCliente = clienteNegocio.SetCliente(cliente);
                 if(idCliente <= 0)
                 {
-                    Response.Redirect("Error.aspx?message=" + "No se pudo Agregar el cliente", false);
+                    Session.Add("error", "No se pudo Agregar el cliente");
+                    Response.Redirect("Error.aspx", false);
                     return;
                 }
             }
@@ -69,12 +73,9 @@ namespace tp_promo_web_equipo_2A
             }
             else
             {
-                Response.Redirect("Error.aspx?message="+"No se pudo completar la operacion", false);
+                Session.Add("error", "No se pudo completar la operacion");
+                Response.Redirect("Error.aspx", false);
             }
-
-
-
-
         }
 
         protected void textDni_TextChanged(object sender, EventArgs e)
