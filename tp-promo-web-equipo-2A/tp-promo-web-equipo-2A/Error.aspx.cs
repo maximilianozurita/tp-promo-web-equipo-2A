@@ -11,7 +11,11 @@ namespace tp_promo_web_equipo_2A
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                string message = Request.QueryString["message"] ?? "Error desconocido";
+                lblMensaje.Text = Server.HtmlEncode(message);
+            }
         }
     }
 }
