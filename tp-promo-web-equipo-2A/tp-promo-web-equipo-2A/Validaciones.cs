@@ -26,11 +26,6 @@ namespace negocio
             return false;
         }
 
-        public static void setearEstiloValidacion(HtmlGenericControl div, TextBox textBox)
-        {
-            div.Attributes["class"] = "invalid-feedback";
-            textBox.CssClass = "form-control is-invalid";
-        }
 
         public static bool setearEstiloValidacion(TextBox textBox, HtmlGenericControl div)
         {
