@@ -122,6 +122,7 @@
     <Compile Include="CodigoVoucher.aspx.designer.cs">
       <DependentUpon>CodigoVoucher.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Validaciones.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

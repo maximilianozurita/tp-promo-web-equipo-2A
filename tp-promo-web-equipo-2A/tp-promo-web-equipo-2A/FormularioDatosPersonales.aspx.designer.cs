@@ -24,6 +24,15 @@ namespace tp_promo_web_equipo_2A
         protected global::System.Web.UI.WebControls.TextBox textDni;
 
         /// <summary>
+        /// Control validDNI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validDNI;
+
+        /// <summary>
         /// Control textNombre.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace tp_promo_web_equipo_2A
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textNombre;
+
+        /// <summary>
+        /// Control validNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validNombre;
 
         /// <summary>
         /// Control textApellido.
@@ -42,6 +60,15 @@ namespace tp_promo_web_equipo_2A
         protected global::System.Web.UI.WebControls.TextBox textApellido;
 
         /// <summary>
+        /// Control validApellido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validApellido;
+
+        /// <summary>
         /// Control textEmail.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace tp_promo_web_equipo_2A
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textEmail;
+
+        /// <summary>
+        /// Control validEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validEmail;
 
         /// <summary>
         /// Control textCiudad.
@@ -60,6 +96,15 @@ namespace tp_promo_web_equipo_2A
         protected global::System.Web.UI.WebControls.TextBox textCiudad;
 
         /// <summary>
+        /// Control validCiudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validCiudad;
+
+        /// <summary>
         /// Control textDireccion.
         /// </summary>
         /// <remarks>
@@ -69,6 +114,15 @@ namespace tp_promo_web_equipo_2A
         protected global::System.Web.UI.WebControls.TextBox textDireccion;
 
         /// <summary>
+        /// Control validDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validDireccion;
+
+        /// <summary>
         /// Control textCP.
         /// </summary>
         /// <remarks>
@@ -76,6 +130,15 @@ namespace tp_promo_web_equipo_2A
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textCP;
+
+        /// <summary>
+        /// Control validCp.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl validCp;
 
         /// <summary>
         /// Control checkTerminos.
